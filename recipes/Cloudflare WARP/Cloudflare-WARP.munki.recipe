@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>Description</key>
+        <string>Downloads the latest version of Cloudflare WARP for teams from the Cloudflare AppCenter feed and imports into Munki.</string>
+        <key>Identifier</key>
+        <string>com.github.vaxa-tech.munki.Cloudflare-WARP</string>
+        <key>ParentRecipe</key>
+        <string>com.github.vaxa-tech.download.Cloudflare-WARP</string>
+        <key>Input</key>
+        <dict>
+            <key>MUNKI_REPO_SUBDIR</key>
+            <string>apps/Cloudflare WARP</string>
+            <key>NAME</key>
+            <string>Cloudflare WARP</string>
+            <key>pathname</key>
+            <string>%pathname%</string>
+            <key>pkginfo</key>
+            <dict>
+                <key>catalogs</key>
+                <array>
+                    <string>testing</string>
+                </array>
+                <key>description</key>
+                <string>The Cloudflare WARP client allows individuals and organizations to have a faster, more secure, and more private experience online.
+
+The WARP client sits between your device and the Internet, and has several connection modes to better suit different needs.</string>
+                <key>developer</key>
+                <string>Cloudflare Inc</string>
+                <key>display_name</key>
+                <string>Cloudflare WARP</string>
+                <key>name</key>
+                <string>%NAME%</string>
+                <key>blocking_applications</key>
+                <array>
+                    <string>Updater.app</string>
+                    <string>LoginLauncherApp.app</string>
+                    <string>Cloudflare WARP.app</string>
+                </array>
+                <key>uninstall_method</key>
+                <string>uninstall_script</string>
+                <key>uninstall_script</key>
+                <string>#!/usr/bin/env bash
+set -u
+/Applications/Cloudflare\ WARP.app/Contents/Resources/uninstall.sh -f
+</string>
+                <key>unattended_install</key>
+                <true/>
+                <key>unattended_uninstall</key>
+                <true/>
+            </dict>
+        </dict>
+        <key>MinimumVersion</key>
+        <string>1.0.0</string>
+        <key>Process</key>
+        <array>
+            <dict>
+                <key>Processor</key>
+                <string>MunkiImporter</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>pkg_path</key>
+                    <string>%pathname%</string>
+                    <key>repo_subdirectory</key>
+                    <string>%MUNKI_REPO_SUBDIR%</string>
+                </dict>
+            </dict>
+        </array>
+    </dict>
+</plist>
