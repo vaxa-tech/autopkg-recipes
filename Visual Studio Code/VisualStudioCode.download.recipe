@@ -5,7 +5,7 @@
 	<key>Description</key>
 	<string>Downloads the current release version of Visual Studio Code.</string>
 	<key>Identifier</key>
-	<string>com.github.valdore86.download.visualstudiocode</string>
+	<string>com.github.vaxa-tech.download.visualstudiocode</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
